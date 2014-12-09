@@ -10,14 +10,17 @@ og_description: Thanks for volunteering for the MAYDAY Movement!
 
 {% capture content %}
 
-## Thanks for stepping up!
+<div id="js-survey-form-wrap">
+  
 
-Please tell us more about your interests and availability to volunteer with MAYDAY.
+<h2>Thanks for stepping up!</h2>
+
+<p>Please tell us more about your interests and availability to volunteer with MAYDAY.</p>
 <style>
   .control-label{padding-right:5px;}
 </style>
 <hr />
-<form action="https://docs.google.com/forms/d/1swjdGLqF3leOa0M6T426s7ZjNsf8gwlKjJYvi9Oquc8/formResponse" method="post" target="hidden_iframe">
+<form action="https://docs.google.com/forms/d/1swjdGLqF3leOa0M6T426s7ZjNsf8gwlKjJYvi9Oquc8/formResponse" method="post" target="hidden_iframe" id="js-survey-form">
   <input type="hidden" name="draftResponse" value="[,,&quot;4125103660680971630&quot;]">
   <input type="hidden" name="pageHistory" value="0">
   <input type="hidden" name="fbzx" value="4125103660680971630">
@@ -97,7 +100,12 @@ Please tell us more about your interests and availability to volunteer with MAYD
     </div>
   </fieldset>
 </form>
+</div>
 
+<div id="js-form-thanks" style="display:none;">
+  <h2>Thanks for filling out the form.</h2>
+  <p>You'll hear from us soon.</p>
+</div>
 <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload=""></iframe>
 
 {% endcapture %}
@@ -116,7 +124,7 @@ Please tell us more about your interests and availability to volunteer with MAYD
       $('#js-email-input').show()
       $('#entry_272734233').prop('type','email')
     }
-    $('form').validate({
+    $('#js-survey-form').validate({
       rules: {
         'entry.272734233': {required: true, email: true },
         'entry.434133908': {minlength: 3 },
@@ -138,10 +146,14 @@ Please tell us more about your interests and availability to volunteer with MAYD
       }
     })
     $('#hidden_iframe').on('load', function(){
-      if(submitted) {window.location='/campaigns/what-we-learned-in-2014'}
+      if(submitted) {
+        // window.location='/campaigns/what-we-learned-in-2014'
+        $('#js-survey-form-wrap').slideUp();
+        $('#js-form-thanks').slideDown();
+      }
     });
   });
 </script>
 {% endcapture %}
 
-{% include subpage.html %}1
+{% include subpage.html %}
