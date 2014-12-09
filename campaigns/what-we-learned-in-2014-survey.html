@@ -113,12 +113,12 @@ og_description: Thanks for volunteering for the MAYDAY Movement!
 <script type='text/javascript'>
   var submitted = false;
   $(document).ready(function(){
-    var email = $.cookie('email').replace(' ','+');
-    var email_from_params = getParameterByName('email').replace(' ','+');
+    var email = $.cookie('email')
+    var email_from_params = getParameterByName('email');
     if(typeof email !== 'undefined'){
-      $('#entry_272734233').val(email)
+      $('#entry_272734233').val(email.replace(' ','+'))
     }else if(email_from_params){
-      $('#entry_272734233').val(email_from_params);
+      $('#entry_272734233').val(email_from_params.replace(' ','+'));
     }else{
       $('#js-email-input').show()
       $('#entry_272734233').prop('type','email')
