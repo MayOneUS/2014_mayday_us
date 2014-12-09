@@ -16,11 +16,12 @@
         <li data-target="#carousel-jumbotron" data-slide-to="0" class="active"></li>
         <li data-target="#carousel-jumbotron" data-slide-to="1"></li>
         <li data-target="#carousel-jumbotron" data-slide-to="2"></li>
+        <li data-target="#carousel-jumbotron" data-slide-to="3"></li>
       </ol>
 
-
       <div class="carousel-inner">
-        <div class="item timeline-graphic active">{% include jumbotrons/20141104-timeline-graphic.html %}</div>
+        <div class="item recap-video active">{% include jumbotrons/20141209-recap-video.html %}</div>
+        <div class="item timeline-graphic">{% include jumbotrons/20141104-timeline-graphic.html %}</div>
         <div class="item time-video">{% include jumbotrons/20141028-time-video.html %}</div>
         <div class="item winners">{% include jumbotrons/20141025-mayday-in-30-winners.html %}</div>
       </div>
@@ -117,7 +118,9 @@
       }).on('blur',function() {
         $("#carousel-jumbotron").carousel('cycle');
     });
-    $('#carousel-jumbotron .item').carouselHeights();
+    setTimeout( function(){
+      $('#carousel-jumbotron .item').carouselHeights();
+    }, 700);//delay a tad so google fonts have time to load
   });
   </script>
 

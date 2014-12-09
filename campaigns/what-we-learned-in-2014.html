@@ -1,0 +1,87 @@
+---
+layout: default
+title: 'What we learned in 2014 - MAYDAY.US'
+omit_title_suffix: true
+cssid: weiland-country-back
+hideSidebar: true
+og_title: 'What we learned in 2014'
+og_description: From raising over $10 million from over 50,000 people, to backing reform candidates in eight races, we've come a long way since May 1, 2014. In 2015, we will pivot to phase two of our experiment, where we will look to our supporters to help us recruit members of Congress to support reform.
+---
+
+{% capture content %}
+<style>
+  #email_input{margin-bottom:10px;}
+  .input-group, .input-group-lg{margin:0;width:auto;}
+    .downloadBtn{font-size:1.2em;background-color:#ccc;float:right;margin-left:15px}
+
+</style>
+
+<div class="container" style="padding-top:0;padding-bottom:0">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="embed-responsive embed-responsive-16by9">
+        <iframe class="embed-responsive-item" allowfullscreen src="//www.youtube.com/embed/bezEYBz7aiQ?rel=0"></iframe>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <h2>What we learned in 2014</h2>
+      <p>From raising over $10 million from over 50,000 people, to backing reform candidates in eight races, we've come a long way since May 1, 2014. In 2015, we will shift to phase two of our experiment, where we will look to you – our supporters – to help us recruit members of Congress to support reform. Join us.</p>
+      <form name="subscribe-form" id="subscribe-form" action='https://pledge.mayday.us/r/subscribe' method='post'>
+        <input type="hidden" name="source" id="sourceElement" value="hub-leader-volunteer"/>
+        <input type="hidden" name="redirect" value="http://mayday.us/campaigns/what-we-learned-in-2014-survey/" />
+        <div>
+          <div class="input-group input-group-lg">
+            <input id="email_input" type="email" name="email" class="form-control" placeholder="Email address">
+          </div>
+        </div>
+        <div>
+          <span class="input-group">
+            <button id="submit-button" type="submit" class="btn btn-primary pull-right">I'm in</button>
+          </span>
+        </div>
+      </form>
+    </div>
+  </div>
+  <hr />
+  <div class="row">
+    <div class="col-md-12">
+      <a class='offsetAnchor' name="presentation"></a>
+      <h3>Post-Election Analysis</h3>
+      <div class="embed-responsive embed-responsive-4by3">
+        <iframe  class="embed-responsive-item" src="//www.slideshare.net/slideshow/embed_code/42534572" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+  <hr />
+  <div class="row">
+    <div class="col-md-12">
+      <p>You can view the raw data that we used for this report. Please feel free to run your own analysis and reach out to let us know what you find.</p>
+      <a href="https://www.dropbox.com/sh/2sm6p2xvosv6ryc/AABXd0ECj5-EB6esn0kyv0Wsa/Mayday%20Final%20Content.zip?dl=0" title="" class="btn downloadBtn">Download Data</a>
+      <a href="https://www.dropbox.com/s/2au8gklcypyrdd0/2014.12.09%20Mayday.US%20Report%20on%202014%20Elections_v02.pdf?dl=0" title="" class="btn downloadBtn">Download Presentation</a>
+      <a href="https://www.dropbox.com/s/yi6n6cntxg92172/2014.12.09%20Mayday.US%20Report%20on%202014%20Elections_v02_web_version.pdf?dl=0" title="" class="btn downloadBtn">Download Presentation (low res)</a>
+    </div>
+  </div>
+</div>
+
+{% endcapture %}
+
+
+{% capture footer_content %}
+<script type='text/javascript'>
+  $(document).ready(function(){
+    var email = getParameterByName('email');
+    $('#email_input').val(email);
+    $('#subscribe-form').validate({
+      rules: {
+        email: {required: true, email: true }
+      },
+      submitHandler: function(form) {
+        $.cookie('email',$('#email_input').val())
+        form.submit()
+      }
+    });
+  });
+</script>
+{% endcapture %}
+
+{% include subpage.html %}

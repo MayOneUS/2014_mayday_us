@@ -1,0 +1,147 @@
+---
+layout: default
+title: 'Recapping 2014: Looking ahead to 2015 - MAYDAY.US'
+omit_title_suffix: true
+cssid: weiland-country-back
+hideSidebar: true
+og_title: 'Recapping 2014: Looking ahead to 2015'
+og_description: Thanks for volunteering for the MAYDAY Movement!
+---
+
+{% capture content %}
+
+## Thanks for stepping up!
+
+Please tell us more about your interests and availability to volunteer with MAYDAY.
+<style>
+  .control-label{padding-right:5px;}
+</style>
+<hr />
+<form action="https://docs.google.com/forms/d/1swjdGLqF3leOa0M6T426s7ZjNsf8gwlKjJYvi9Oquc8/formResponse" method="post" target="hidden_iframe">
+  <input type="hidden" name="draftResponse" value="[,,&quot;4125103660680971630&quot;]">
+  <input type="hidden" name="pageHistory" value="0">
+  <input type="hidden" name="fbzx" value="4125103660680971630">
+  <fieldset>
+    <div class="form-group" style="display:none" id="js-email-input">
+      <label class="control-label" for="entry.272734233">What is your email address? <abbr>*</abbr> </label>
+      <input id="entry_272734233" name="entry.272734233" type="hidden" placeholder="" class="form-control input-md">
+    </div>
+
+    <div class="form-group">
+      <label class="control-label" for="entry.434133908">What is your U.S. zip code or international location?</label>
+      <input id="entry_434133908" name="entry.434133908" type="text" placeholder="" class="form-control input-md">
+    </div>
+
+    <div class="form-group">
+      <label class="control-label" for="entry.563805616">Are you willing to help us develop and beta-test our new citizen lobbying platform?  </label>
+        <div class="radio">
+          <label for="entry.563805616-0">
+            <input type="radio" name="entry.563805616" id="entry.563805616-0" value="Yes, especially with online activities">
+            Yes, especially with online activities
+          </label>
+        </div>
+        <div class="radio">
+          <label for="entry.563805616-1">
+            <input type="radio" name="entry.563805616" id="entry.563805616-1" value="Yes, especially with offline activities">
+            Yes, especially with offline activities
+          </label>
+        </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label" for="entry.290207709">How much time can you volunteer on a regular basis? <abbr>*</abbr> </label>
+        <div class="radio">
+          <label for="entry.290207709-0">
+            <input type="radio" name="entry.290207709" id="entry.290207709-0" value="I could volunteer up to 2 hours per month">
+            I could volunteer up to 2 hours per month
+          </label>
+        </div>
+        <div class="radio">
+          <label for="entry.290207709-1">
+            <input type="radio" name="entry.290207709" id="entry.290207709-1" value="I could volunteer up to 1 hour per week">
+            I could volunteer up to 1 hour per week
+          </label>
+        </div>
+        <div class="radio">
+          <label for="entry.290207709-2">
+            <input type="radio" name="entry.290207709" id="entry.290207709-2" value="I could volunteer up to 2 hours per week">
+            I could volunteer up to 2 hours per week
+          </label>
+        </div>
+        <div class="radio">
+          <label for="entry.290207709-3">
+            <input type="radio" name="entry.290207709" id="entry.290207709-3" value="I could volunteer up to 5 hours per week">
+            I could volunteer up to 5 hours per week
+          </label>
+        </div>
+        <div class="radio">
+          <label for="entry.290207709-4">
+            <input type="radio" name="entry.290207709" id="entry.290207709-4" value="I could volunteer more than 5 hours per week">
+            I could volunteer more than 5 hours per week
+          </label>
+        </div>
+        <!-- <div class="radio">
+          <label for="entry.290207709-5">
+            <input type="radio" name="entry.290207709" id="entry.290207709-5" value="I could volunteer unlimited hours on end without sleep for days">
+            I could volunteer unlimited hours on end without sleep for days
+          </label>
+        </div> -->
+    </div>
+    <div class="form-group">
+      <label class="control-label" for="entry.248036334">Do you have a specific skill set you want to share with us?</label>
+      <input id="entry.248036334" name="entry.248036334" type="text" placeholder="" class="form-control input-md">
+      <span class="help-block">(e.g. graphic design, python coding<!-- , ninja skills -->)</span>
+    </div>
+    <div class="form-group">
+      <label class="control-label" for="submit"></label>
+      <button id="submit" name="submit" class="btn btn-primary">Submit</button>
+    </div>
+  </fieldset>
+</form>
+
+<iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload=""></iframe>
+
+{% endcapture %}
+
+{% capture footer_content %}
+<script type='text/javascript'>
+  var submitted = false;
+  $(document).ready(function(){
+    var email = $.cookie('email')
+    var email_from_params = getParameterByName('email');
+    if(typeof email !== 'undefined'){
+      $('#entry_272734233').val(email)
+    }else if(email_from_params){
+      $('#entry_272734233').val(email_from_params);
+    }else{
+      $('#js-email-input').show()
+      $('#entry_272734233').prop('type','email')
+    }
+    $('form').validate({
+      rules: {
+        'entry.272734233': {required: true, email: true },
+        'entry.434133908': {minlength: 3 },
+        'entry.1542020258': {required: true },
+        'entry.290207709': {required: true }
+      },
+      errorPlacement: function(error, element) {
+        if (element.prop("type") == "radio" || element.prop("type") == "checkbox" ) {
+          error.insertAfter(element.parents('.form-group').find('> label'));
+        } else {
+          console.log('default')
+          error.insertAfter(element);
+        }
+      },
+      submitHandler: function(form) {
+        $.cookie('email',$('#email_input').val())
+        submitted = true;
+        form.submit()
+      }
+    })
+    $('#hidden_iframe').on('load', function(){
+      if(submitted) {window.location='/campaigns/what-we-learned-in-2014'}
+    });
+  });
+</script>
+{% endcapture %}
+
+{% include subpage.html %}1
