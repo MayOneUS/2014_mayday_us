@@ -69,7 +69,7 @@ og_description: From raising over $10 million from over 50,000 people, to backin
 {% capture footer_content %}
 <script type='text/javascript'>
   $(document).ready(function(){
-    var email = getParameterByName('email');
+    var email = getParameterByName('email').replace(' ','+');
     $('#email_input').val(email);
     $('#subscribe-form').validate({
       rules: {
