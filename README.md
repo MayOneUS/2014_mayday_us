@@ -1,9 +1,9 @@
-Mayday PAC US Homepage
+2014 Mayday PAC US Homepage
 ==================
 
 ### What's this?
-This replaces the old homepage for [Mayday PAC](mayday.us).
-We're currently running this repo in production.
+This is the 2014 election site for [Mayday PAC](mayday.us).
+We're currently running this repo at v1.mayday.us.
 
 ### How can I help?
 Send over a PR *(topic branches please)*!
